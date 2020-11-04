@@ -10,4 +10,9 @@ class RequestEncrpt {
     final String version = await _channel.invokeMethod('getSignature', message);
     return version;
   }
+
+  static Future<String> getPassword(String password) async {
+    final String version = await _channel.invokeMethod('getPassword', password);
+    return version;
+  }
 }
