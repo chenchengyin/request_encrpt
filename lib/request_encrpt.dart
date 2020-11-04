@@ -6,8 +6,8 @@ class RequestEncrpt {
   static const MethodChannel _channel =
       const MethodChannel('com.gugu.chuman/request_encrpt');
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String> getSignature(String message) async {
+    final String version = await _channel.invokeMethod('getSignature', message);
     return version;
   }
 }
