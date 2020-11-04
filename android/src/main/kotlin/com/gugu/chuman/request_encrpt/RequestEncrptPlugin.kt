@@ -1,6 +1,7 @@
 package com.gugu.chuman.request_encrpt
 
 import androidx.annotation.NonNull
+import com.gugu.chuman.request_encrpt.security.PasswordEncrypt
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -26,6 +27,9 @@ class RequestEncrptPlugin: FlutterPlugin, MethodCallHandler {
     if (call.method == "getSignature") {
       val encrptMsg = SecureUtil.getSignature(call.arguments.toString())
       result.success(encrptMsg)
+    }else if (call.method == "getPassword") {
+      val encrptPwd = PasswordEncrypt.encrypt(call.arguments.toString())
+      result.success(encrptPwd)
     } else {
       result.notImplemented()
     }

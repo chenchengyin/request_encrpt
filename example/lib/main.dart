@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:request_encrpt/request_encrpt.dart';
 
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      platformVersion = await RequestEncrpt.platformVersion;
+      platformVersion = await RequestEncrpt.getSignature("message");
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
