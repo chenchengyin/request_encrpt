@@ -20,7 +20,6 @@ public class SecureUtil {
     /**
      * Creates Signature From Query and Post Data
      */
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public static String getSignature(String message) {
         String str = USER_ACCESS_KEY + EncodeUtils.encodeUnicode(message);
         Log.e("auth", "str: " +str);

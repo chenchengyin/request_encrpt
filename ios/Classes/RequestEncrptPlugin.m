@@ -1,4 +1,6 @@
 #import "RequestEncrptPlugin.h"
+#import "NSString+TPAPI.h"
+#import "TPAccountHelper.h"
 
 @implementation RequestEncrptPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -11,9 +13,9 @@
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"getSignature" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+    result([(NSString *)call.arguments tpAPI_getSignature]);
   } else if ([@"getPassword" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+    result([TPAccountHelper tp_encryptString:(NSString *)call.arguments]);
   }else {
     result(FlutterMethodNotImplemented);
   }
