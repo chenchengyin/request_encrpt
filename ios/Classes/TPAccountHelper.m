@@ -22,11 +22,11 @@ NSString *const kRSAPublicKey = @"-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQ
         return nil;
     }
     NSString *result = [RSA encryptString:str publicKey:kRSAPublicKey];
-    TPLog(@"encrypt result %@",result);
+//    TPLog(@"encrypt result %@",result);
     result = [result stringByReplacingOccurrencesOfString:@"+" withString:@"-"];
     result = [result stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
     result = [result stringByReplacingOccurrencesOfString:@"=" withString:@""];
-    TPLog(@"encrypt result after replace %@",result);
+//    TPLog(@"encrypt result after replace %@",result);
     return result;
 }
 
